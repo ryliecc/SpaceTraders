@@ -14,12 +14,10 @@ struct ContentView: View {
     var body: some View {
         if firstLaunch {
             OnboardingView(agentViewModel: agentViewModel)
-        } else if let agent = agentViewModel.agent {
+        } else if agentViewModel.agent != nil {
             TabView {
                 Tab("Dashboard", systemImage: "house") {
-                    Text(
-                        "Welcome \(agent.symbol)! Looks like this is not your first time launching the app. More content will come soon. Stay tuned!"
-                    )
+                    DashboardView(agentViewModel: agentViewModel)
                 }
                 Tab("Fleet", systemImage: "airplane") {
                     Text("You will see your fleet here soon.")
