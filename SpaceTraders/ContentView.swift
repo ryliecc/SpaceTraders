@@ -8,9 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    @AppStorage("firstLaunch") var firstLaunch: Bool = true
 
     var body: some View {
-        Text("Hello World")
+        if firstLaunch {
+            OnboardingView()
+        } else {
+            Text("Looks like this is not your first time launching the app. More content will come soon. Stay tuned!")
+        }
     }
 }
 
