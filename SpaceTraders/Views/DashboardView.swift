@@ -12,10 +12,10 @@ struct DashboardView: View {
     
     var body: some View {
         VStack {
-            Text("Agent name: \(agentViewModel.agent?.symbol ?? "")")
-            Text("Faction: \(agentViewModel.agent?.startingFaction ?? "")")
-            Text("Credits: \(agentViewModel.agent?.credits ?? 0)")
-            Text("Headquarter: \(agentViewModel.agent?.startingFaction ?? "")")
+            Text("Agent name: \(agentViewModel.agent.symbol)")
+            Text("Faction: \(agentViewModel.agent.startingFaction)")
+            Text("Credits: \(agentViewModel.agent.credits)")
+            Text("Headquarter: \(agentViewModel.agent.startingFaction)")
         }
     }
 }

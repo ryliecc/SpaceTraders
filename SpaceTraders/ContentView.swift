@@ -14,7 +14,7 @@ struct ContentView: View {
     var body: some View {
         if firstLaunch {
             OnboardingView(agentViewModel: agentViewModel)
-        } else if agentViewModel.agent != nil {
+        } else if agentViewModel.isLoaded {
             TabView {
                 Tab("Dashboard", systemImage: "house") {
                     DashboardView(agentViewModel: agentViewModel)

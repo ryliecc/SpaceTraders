@@ -9,11 +9,13 @@ import Foundation
 
 @MainActor
 class AgentViewModel: ObservableObject {
-    @Published var agent: AgentData?
+    @Published var agent: AgentData = AgentData.placeholder()
+    @Published var isLoaded: Bool = false
     
     func fetch() async -> Bool {
             do {
                 agent = try await SpaceTradersApi.shared.getAgent()
+                isLoaded = true
                 return true
             } catch let error as HTTPError {
                 print(error.message)

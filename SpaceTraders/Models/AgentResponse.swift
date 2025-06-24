@@ -18,4 +18,8 @@ struct AgentData: Codable {
     let credits: Int
     let startingFaction: String
     let shipCount: Int
+    
+    static func placeholder() -> AgentData {
+        return AgentData(accountId: "Is loading...", symbol: "Is loading...", headquarters: "Is loading...", credits: 0, startingFaction: "Is loading...", shipCount: 0)
+    }
 }
