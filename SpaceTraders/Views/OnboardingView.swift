@@ -11,7 +11,7 @@ struct OnboardingView: View {
     @State var currentPage: Int = 0
     @AppStorage("key") var key: String = ""
     @AppStorage("firstLaunch") var firstLaunch: Bool = true
-    @StateObject private var agentViewModel = AgentViewModel()
+    @ObservedObject var agentViewModel: AgentViewModel
     @State var fetchFailed: Bool = false
 
     var body: some View {
@@ -77,5 +77,5 @@ struct OnboardingView: View {
 }
 
 #Preview {
-    OnboardingView()
+    OnboardingView(agentViewModel: AgentViewModel())
 }
