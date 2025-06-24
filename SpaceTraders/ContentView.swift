@@ -15,9 +15,27 @@ struct ContentView: View {
         if firstLaunch {
             OnboardingView(agentViewModel: agentViewModel)
         } else if let agent = agentViewModel.agent {
-            Text("Welcome \(agent.symbol)! Looks like this is not your first time launching the app. More content will come soon. Stay tuned!")
+            TabView {
+                Tab("Dashboard", systemImage: "house") {
+                    Text(
+                        "Welcome \(agent.symbol)! Looks like this is not your first time launching the app. More content will come soon. Stay tuned!"
+                    )
+                }
+                Tab("Fleet", systemImage: "airplane") {
+                    Text("You will see your fleet here soon.")
+                }
+                Tab("Trade", systemImage: "cart") {
+                    Text("You will find the marketplace here soon.")
+                }
+                Tab("Navigation", systemImage: "map") {
+                    Text("You will find the navigation here soon.")
+                }
+                Tab("Contracts", systemImage: "doc.plaintext") {
+                    Text("You will find your contracts here soon.")
+                }
+            }
         } else {
-            ProgressView("Loading agent info…")
+            ProgressView("Loading info…")
                 .task {
                     _ = await agentViewModel.fetch()
                 }
