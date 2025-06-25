@@ -36,7 +36,7 @@ class SpaceTradersApi {
         return result.data
     }
     
-    func getFactions() async throws -> FactionsData {
+    func getFactions() async throws -> [FactionData] {
         guard let url = URL(string: baseUrl + "/my/factions") else {
             throw HTTPError.invalidURL
         }

@@ -8,13 +8,17 @@
 import Foundation
 
 struct FactionsResponse: Codable {
-    let data: FactionsData
+    let data: [FactionData]
     let meta: FactionsMeta
 }
 
-struct FactionsData: Codable {
+struct FactionData: Codable {
     let symbol: String
     let reputation: Int
+    
+    static func placeholder() -> FactionData {
+        return FactionData(symbol: "LOADING", reputation: 0)
+    }
 }
 
 struct FactionsMeta: Codable {
